@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Client from "./client";
+import Visit from "../Visit/Visit";
 
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
@@ -12,11 +12,11 @@ import Client from "./client";
 // main window
 // client
 
-export default function ClientList({ clients }) {
+export default function ClientList({ visits }) {
   return (
     <div>
-      {clients.map((item) => (
-        <Client key={item.clientId} {...item} />
+      {visits.map((item) => (
+        <Visit key={item.clientId} {...item} />
       ))}
     </div>
   );

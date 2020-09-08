@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Visit from "./visit";
+import React from "react";
+import Client from "../Client/Client";
 
+import styles from "./ClientList.css";
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
 // if (!process || !process.env || process.env.NODE_ENV !== "development") {
@@ -12,11 +13,12 @@ import Visit from "./visit";
 // main window
 // client
 
-export default function ClientList({ visits }) {
+export default function ClientList({ clients }) {
   return (
-    <div>
-      {visits.map((item) => (
-        <Visit key={item.clientId} {...item} />
+    <div styleName={styles.clientcontainer}>
+      fff
+      {clients.map((item) => (
+        <Client key={item.clientId} {...item} />
       ))}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { Context } from "./context";
+import { Context } from "../context";
+import styles from "./Client.css";
 
 export default function Client({
   clientId,
@@ -14,7 +15,7 @@ export default function Client({
   //   cls.push("completed");
   // }
   return (
-    <li className="clientBox">
+    <li className={styles.client}>
       {clientId} {clientName} {clientSurname} {clientNumber}
       <button type="button" onClick={() => removeClient(clientId)}>
         {" "}

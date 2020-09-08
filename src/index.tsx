@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { render } from "react-dom";
 
 import { register } from "./serviceWorker";
-import ClientList from "./clientList";
+import ClientList from "./ClientList/ClientList";
 
-import VisitList from "./visitList";
+import VisitList from "./VisitList/VisitList";
 
 import { Context } from "./context";
 
