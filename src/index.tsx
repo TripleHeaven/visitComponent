@@ -1,4 +1,4 @@
-import "./index.scss";
+import "./index.css";
 
 import React, { useState } from "react";
 import { render } from "react-dom";
@@ -72,7 +72,8 @@ export default function App() {
         clientName: clients[radnomIndexCl].clientName,
         clientSurname: clients[radnomIndexCl].clientSurname,
         clientNumber: clients[radnomIndexCl].clientNumber,
-        vtime: randomDate(12, 18),
+        vtime:
+          randomDate(12, 18).toString() + ":" + randomDate(12, 18).toString(),
         section: sections[randomIndexSections],
         teacher: teachers[radnomIndexTeacher],
       },

@@ -1,3 +1,55 @@
 .client {
-  background-color: red;
+  background-color: #282a37;
+  color: white;
+  width: 300px;
+  align-items: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttons {
+  background: none;
+  color: white;
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+  margin-left: auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.clientInfo {
+  display: grid;
+  grid-template-rows: 20px 30px 20px;
+  grid-template-columns: 50px, 40px;
+}
+.clientName {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.clientNumber {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  color: #7f7f8b;
+}
+.clientCircle {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #3f3f4b;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: center;
+  line-height: 50px;
+}
+.clientInitials {
+  margin: 0 auto;
+  vertical-align: center;
 }

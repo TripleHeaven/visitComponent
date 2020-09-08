@@ -15,8 +15,7 @@ import styles from "./ClientList.css";
 
 export default function ClientList({ clients }) {
   return (
-    <div styleName={styles.clientcontainer}>
-      fff
+    <div className={styles.clientcontainer}>
       {clients.map((item) => (
         <Client key={item.clientId} {...item} />
       ))}

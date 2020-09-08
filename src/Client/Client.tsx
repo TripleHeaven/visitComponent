@@ -15,12 +15,27 @@ export default function Client({
   //   cls.push("completed");
   // }
   return (
-    <li className={styles.client}>
-      {clientId} {clientName} {clientSurname} {clientNumber}
-      <button type="button" onClick={() => removeClient(clientId)}>
-        {" "}
-        Delete
-      </button>
-    </li>
+    <div className={styles.client}>
+      <div className={styles.clientInfo}>
+        <div className={styles.clientCircle}>
+          <div className={styles.clientInitials}>
+            {clientName.slice(0, 1).toUpperCase()}
+            {clientSurname.slice(0, 1).toUpperCase()}
+          </div>
+        </div>
+        <div className={styles.clientName}>
+          {clientName} {clientSurname}
+        </div>
+        <div className={styles.clientNumber}>{clientNumber}</div>
+        <button
+          type="button"
+          className={styles.buttons}
+          onClick={() => removeClient(clientId)}
+        >
+          {" "}
+          Delete
+        </button>
+      </div>
+    </div>
   );
 }

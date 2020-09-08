@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+.visitblock {
+  background-color: #282a37;
+  color: white;
+  width: 300px;
+  height: 80px;
+  align-items: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 50px 250px;
+  grid-template-rows: 25px 25px 30px;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+  /* margin-bottom: 10px; */
+}
+
+.circle {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #3f3f4b;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: center;
+  line-height: 50px;
+}
+.nametime {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  align-items: center;
+}
+.time {
+  margin-left: auto;
+  padding-right: 7px;
+}
+.namename {
+  margin-right: auto;
+  padding-left: 7px;
+}
+.number {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  margin-right: auto;
+  padding-left: 7px;
+  color: #7f7f8b;
+}
+.buttons {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  display: flex;
+  align-items: center;
+}
+.buttonsthing {
+  background: none;
+  color: red;
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+  margin-left: auto;
+}
+.buttonsitself {
+  background: none;
+  color: white;
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+}
+.teachersection {
+  display: flex;
+  align-items: center;
+}
+.teachern {
+  margin-left: auto;
+  padding-left: 4px;
+  color: #7f7f8b;
+}
+.line {
+  border-bottom: solid;
+  border-color: white;
+  margin-top: 15px;
+  width: 300px;
+  border-width: 1px;
+  border-color: #323345;
+}
