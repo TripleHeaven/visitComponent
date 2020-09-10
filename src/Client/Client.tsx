@@ -1,13 +1,9 @@
 import React, { useContext } from "react";
 import { Context } from "../context";
 import styles from "./Client.css";
+import { ClientT } from "../typesTS/ClientT";
 
-export default function Client({
-  clientId,
-  clientName,
-  clientSurname,
-  clientNumber,
-}) {
+export default function Client(Clientt: ClientT) {
   //const { toggleTodo, removeTodo } = useContext(Context);
   const { removeClient } = useContext(Context);
   //const cls = ["todo"];
@@ -19,18 +15,18 @@ export default function Client({
       <div className={styles.clientInfo}>
         <div className={styles.clientCircle}>
           <div className={styles.clientInitials}>
-            {clientName.slice(0, 1).toUpperCase()}
-            {clientSurname.slice(0, 1).toUpperCase()}
+            {Clientt.clientName.slice(0, 1).toUpperCase()}
+            {Clientt.clientSurname.slice(0, 1).toUpperCase()}
           </div>
         </div>
         <div className={styles.clientName}>
-          {clientName} {clientSurname}
+          {Clientt.clientName} {Clientt.clientSurname}
         </div>
-        <div className={styles.clientNumber}>{clientNumber}</div>
+        <div className={styles.clientNumber}>{Clientt.clientNumber}</div>
         <button
           type="button"
           className={styles.buttons}
-          onClick={() => removeClient(clientId)}
+          onClick={() => removeClient(Clientt.clientId)}
         >
           {" "}
           Delete

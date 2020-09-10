@@ -1,6 +1,7 @@
 import React from "react";
 import Client from "../Client/Client";
 
+import { ClientT } from "../typesTS/ClientT";
 import styles from "./ClientList.css";
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
@@ -13,7 +14,7 @@ import styles from "./ClientList.css";
 // main window
 // client
 
-export default function ClientList({ clients }) {
+export default function ClientList({ clients }: { clients: ClientT[] }) {
   return (
     <div className={styles.clientcontainer}>
       {clients.map((item) => (

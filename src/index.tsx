@@ -10,6 +10,9 @@ import VisitList from "./VisitList/VisitList";
 
 import { Context } from "./context";
 
+import { ClientT } from "./typesTS/ClientT";
+import { VisitT } from "./typesTS/VisitT";
+
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
 // if (!process || !process.env || process.env.NODE_ENV !== "development") {
@@ -24,20 +27,21 @@ import { Context } from "./context";
 export default function App() {
   const sections = ["Box", "Fitness", "Jeff", "Jab"];
   const teachers = ["Jeff Click", "Matt Daimond", "Lev Balaguroff"];
-  const removeClient = (clientId) => {
+  const removeClient = (clientId: number) => {
     setClient(
       clients.filter((client) => {
         return client.clientId !== clientId;
       })
     );
   };
-  const removeVisit = (clientId) =>
+  const removeVisit = (clientId: number) =>
     setVisit(
-      visits.filter((visit) => {
+      visits.filter((visit: VisitT) => {
         return visit.clientId !== clientId;
       })
     );
-  const [clients, setClient] = useState([
+
+  const [clients, setClient] = useState<ClientT[]>([
     {
       clientId: Date.now(),
       clientName: "Sarah",
@@ -45,7 +49,7 @@ export default function App() {
       clientNumber: "+1234566",
     },
   ]);
-  const [visits, setVisit] = useState([]);
+  const [visits, setVisit] = useState<VisitT[]>([]);
   // const [visits, setVisit] = useState([
   //   {
   //     clientName: clients[1].clientName,
@@ -56,12 +60,12 @@ export default function App() {
   //     teacher: "Tyson",
   //   },
   // ]);
-  function randomDate(startHour, endHour) {
+  function randomDate(startHour: number, endHour: number): string {
     const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
-    return hour;
+    return hour.toString();
   }
 
-  const addRandomVisit = (event) => {
+  const addRandomVisit = () => {
     const radnomIndexCl = Math.floor(Math.random() * clients.length);
     const radnomIndexTeacher = Math.floor(Math.random() * teachers.length);
     const randomIndexSections = Math.floor(Math.random() * sections.length);
@@ -72,8 +76,7 @@ export default function App() {
         clientName: clients[radnomIndexCl].clientName,
         clientSurname: clients[radnomIndexCl].clientSurname,
         clientNumber: clients[radnomIndexCl].clientNumber,
-        vtime:
-          randomDate(12, 18).toString() + ":" + randomDate(12, 18).toString(),
+        vtime: randomDate(12, 18) + ":" + randomDate(12, 18),
         section: sections[randomIndexSections],
         teacher: teachers[radnomIndexTeacher],
       },
@@ -82,7 +85,7 @@ export default function App() {
   const [clientNamec, setClientName] = useState("");
   const [clientSurnamec, setClientSurname] = useState("");
   const [clientNumberc, setClientNumber] = useState("");
-  const addClient = (event) => {
+  const addClient = () => {
     setClient([
       ...clients,
       {

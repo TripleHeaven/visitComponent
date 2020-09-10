@@ -2,33 +2,26 @@ import React, { useContext } from "react";
 import { Context } from "../context";
 
 import styles from "./Visit.css";
-export default function Visit({
-  clientId,
-  clientName,
-  clientSurname,
-  clientNumber,
-  vtime,
-  section,
-  teacher,
-}) {
+import { VisitT } from "../typesTS/VisitT";
+export default function Visit(visit: VisitT) {
   const { removeVisit } = useContext(Context);
 
   return (
     <div className={styles.visitblock}>
       <div className={styles.circle}>
-        {clientName.slice(0, 1)}
-        {clientSurname.slice(0, 1)}
+        {visit.clientName.slice(0, 1)}
+        {visit.clientSurname.slice(0, 1)}
       </div>
       <div className={styles.nametime}>
         <p className={styles.namename}>
-          {clientName} {clientSurname}
+          {visit.clientName} {visit.clientSurname}
         </p>{" "}
-        <p className={styles.time}>{vtime}</p>
+        <p className={styles.time}>{visit.vtime}</p>
       </div>
-      <div className={styles.number}>{clientNumber}</div>
+      <div className={styles.number}>{visit.clientNumber}</div>
       <div className={styles.buttons}>
         <div className={styles.teachersection}>
-          {section} <p className={styles.teachern}>{teacher}</p>
+          {visit.section} <p className={styles.teachern}>{visit.teacher}</p>
         </div>
         <p className={styles.buttonsthing}>
           <button type="button" className={styles.buttonsitself}>
@@ -37,7 +30,7 @@ export default function Visit({
           <button
             type="button"
             className={styles.buttonsitself}
-            onClick={() => removeVisit(clientId)}
+            onClick={() => removeVisit(visit.clientId)}
           >
             Remove
           </button>
