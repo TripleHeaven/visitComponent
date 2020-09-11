@@ -1,17 +1,19 @@
-import "./index.css";
+import './index.css';
 
-import React, { useState } from "react";
-import { render } from "react-dom";
+import React, { useState } from 'react';
+import { render } from 'react-dom';
 
-import { register } from "./serviceWorker";
-import ClientList from "./ClientList/ClientList";
+import { register } from './serviceWorker';
+import ClientList from './ClientList/ClientList';
 
-import VisitList from "./VisitList/VisitList";
+import VisitList from './VisitList/VisitList';
 
-import { Context } from "./context";
+import { Context } from './context';
 
-import { ClientT } from "./typesTS/ClientT";
-import { VisitT } from "./typesTS/VisitT";
+import { ClientT } from './typesTS/ClientT';
+import { VisitT } from './typesTS/VisitT';
+
+import styles from './index.css';
 
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
@@ -21,15 +23,12 @@ import { VisitT } from "./typesTS/VisitT";
 //   console.log = () => undefined as any;
 // }
 
-// main window
-// client
-
 export default function App() {
-  const sections = ["Box", "Fitness", "Jeff", "Jab"];
-  const teachers = ["Jeff Click", "Matt Daimond", "Lev Balaguroff"];
+  const sections = ['Box', 'Fitness', 'Jeff', 'Jab'];
+  const teachers = ['Jeff Click', 'Matt Daimond', 'Lev Balaguroff'];
   const removeClient = (clientId: number) => {
     setClient(
-      clients.filter((client) => {
+      clients.filter(client => {
         return client.clientId !== clientId;
       })
     );
@@ -44,22 +43,12 @@ export default function App() {
   const [clients, setClient] = useState<ClientT[]>([
     {
       clientId: Date.now(),
-      clientName: "Sarah",
-      clientSurname: "Connor",
-      clientNumber: "+1234566",
-    },
+      clientName: 'Sarah',
+      clientSurname: 'Connor',
+      clientNumber: '+1234566'
+    }
   ]);
   const [visits, setVisit] = useState<VisitT[]>([]);
-  // const [visits, setVisit] = useState([
-  //   {
-  //     clientName: clients[1].clientName,
-  //     clientSurname: clients[0].clientSurname,
-  //     clientNumber: clients[0].clientNumber,
-  //     vtime: Date.now(),
-  //     section: "Box",
-  //     teacher: "Tyson",
-  //   },
-  // ]);
   function randomDate(startHour: number, endHour: number): string {
     const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
     return hour.toString();
@@ -76,15 +65,15 @@ export default function App() {
         clientName: clients[radnomIndexCl].clientName,
         clientSurname: clients[radnomIndexCl].clientSurname,
         clientNumber: clients[radnomIndexCl].clientNumber,
-        vtime: randomDate(12, 18) + ":" + randomDate(12, 18),
+        vtime: randomDate(12, 18) + ':' + randomDate(12, 18),
         section: sections[randomIndexSections],
-        teacher: teachers[radnomIndexTeacher],
-      },
+        teacher: teachers[radnomIndexTeacher]
+      }
     ]);
   };
-  const [clientNamec, setClientName] = useState("");
-  const [clientSurnamec, setClientSurname] = useState("");
-  const [clientNumberc, setClientNumber] = useState("");
+  const [clientNamec, setClientName] = useState('');
+  const [clientSurnamec, setClientSurname] = useState('');
+  const [clientNumberc, setClientNumber] = useState('');
   const addClient = () => {
     setClient([
       ...clients,
@@ -92,50 +81,60 @@ export default function App() {
         clientId: Date.now(),
         clientName: clientNamec,
         clientSurname: clientSurnamec,
-        clientNumber: clientNumberc,
-      },
+        clientNumber: clientNumberc
+      }
     ]);
-    setClientName("");
-    setClientSurname("");
-    setClientNumber("");
+    setClientName('');
+    setClientSurname('');
+    setClientNumber('');
   };
   // Add client thing
   return (
-    <Context.Provider value={{ removeClient, removeVisit }}>
-      <div styleName="g">
-        <div styleName="addclientWindow">
-          <div>
-            <label>Name</label>
-            <input
-              type="text"
-              value={clientNamec}
-              onChange={(event) => setClientName(event.target.value)}
-            ></input>
-            <label>Surname</label>
-            <input
-              type="text"
-              value={clientSurnamec}
-              onChange={(event) => setClientSurname(event.target.value)}
-            ></input>
-            <label>Number</label>
-            <input
-              type="text"
-              value={clientNumberc}
-              onChange={(event) => setClientNumber(event.target.value)}
-            ></input>
+    <Context.Provider
+      value={{
+        removeClient,
+        removeVisit
+      }}
+    >
+      <div>
+        <div className={styles.addclientContainer}>
+          <div className={styles.addclientInfo}>
+            <div className={styles.addName}>
+              <label>Name</label>
+              <input
+                type="text"
+                value={clientNamec}
+                onChange={event => setClientName(event.target.value)}
+              ></input>
+            </div>
+            <div className={styles.addSurname}>
+              <label>Surname</label>
+              <input
+                type="text"
+                value={clientSurnamec}
+                onChange={event => setClientSurname(event.target.value)}
+              ></input>
+            </div>
+            <div className={styles.addNumber}>
+              <label>Number</label>
+              <input
+                type="text"
+                value={clientNumberc}
+                onChange={event => setClientNumber(event.target.value)}
+              ></input>
+            </div>
+            <div className={styles.addButton}>
+              <button type="button" onClick={addRandomVisit}>
+                Add Random Visit
+              </button>
+              <button type="button" onClick={addClient}>
+                Add a client
+              </button>
+            </div>
           </div>
-          <button type="button" onClick={addClient}>
-            Add a client
-          </button>
-
-          <div styleName="clients">
+          <div>
             <ClientList clients={clients} />
           </div>
-        </div>
-        <div className="secons">
-          <button type="button" onClick={addRandomVisit}>
-            Add Random Visit
-          </button>
         </div>
         <div className="visits">
           <VisitList visits={visits} />
@@ -145,6 +144,6 @@ export default function App() {
   );
 }
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));
 
 register();

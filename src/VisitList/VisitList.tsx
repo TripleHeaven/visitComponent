@@ -1,9 +1,9 @@
-import React from "react";
-import Visit from "../Visit/Visit";
+import React from 'react';
+import Visit from '../Visit/Visit';
 
-import styles from "./VisitList.css";
+import styles from './VisitList.css';
 
-import { VisitT } from "../typesTS/VisitT";
+import { VisitT } from '../typesTS/VisitT';
 
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
@@ -19,7 +19,7 @@ import { VisitT } from "../typesTS/VisitT";
 export default function VisitList({ visits }: { visits: VisitT[] }) {
   return (
     <div className={styles.visitcontainer}>
-      {visits.map((item) => (
+      {visits.map(item => (
         <Visit key={item.clientId} {...item} />
       ))}
     </div>

@@ -2,10 +2,18 @@
   background-color: #282a37;
   color: white;
   width: 300px;
+  height: 80px;
   align-items: center;
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
+  display: grid;
+  grid-template-columns: 50px  250px;
+  grid-template-rows: 25px 25px 30px; 
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+  margin-left : 5px;
 }
 .buttons {
   background: none;
@@ -14,19 +22,22 @@
   cursor: pointer;
   border: 0;
   margin-left: auto;
-  grid-column-start: 2;
+  grid-column-start: 1;
   grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 .clientInfo {
-  display: grid;
-  grid-template-rows: 20px 30px 20px;
-  grid-template-columns: 50px, 40px;
+  display: flex;
+  
 }
 .clientName {
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 3;
+  display: flex;
+  padding-left: 7px;
 }
 .clientNumber {
   grid-row-start: 2;
@@ -34,12 +45,14 @@
   grid-column-start: 2;
   grid-column-end: 3;
   color: #7f7f8b;
+  display: flex;
+  padding-left: 7px;
 }
 .clientCircle {
-  grid-row-start: 1;
-  grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
   width: 50px;
   height: 50px;
   margin: 0 auto;
@@ -52,4 +65,12 @@
 .clientInitials {
   margin: 0 auto;
   vertical-align: center;
+}
+.line {
+  border-bottom: solid;
+  border-color: white;
+  margin-top: 15px;
+  width: 300px;
+  border-width: 1px;
+  border-color: #323345;
 }

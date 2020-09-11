@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Context } from "../context";
+import React, { useContext } from 'react';
+import { Context } from '../context';
 
-import styles from "./Visit.css";
-import { VisitT } from "../typesTS/VisitT";
+import styles from './Visit.css';
+import { VisitT } from '../typesTS/VisitT';
 export default function Visit(visit: VisitT) {
   const { removeVisit } = useContext(Context);
 
@@ -15,7 +15,7 @@ export default function Visit(visit: VisitT) {
       <div className={styles.nametime}>
         <p className={styles.namename}>
           {visit.clientName} {visit.clientSurname}
-        </p>{" "}
+        </p>{' '}
         <p className={styles.time}>{visit.vtime}</p>
       </div>
       <div className={styles.number}>{visit.clientNumber}</div>

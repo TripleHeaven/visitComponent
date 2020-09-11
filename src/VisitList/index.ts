@@ -1,3 +1,3 @@
-import VisitList from "./VisitList";
+import VisitList from './VisitList';
 
 export default VisitList;

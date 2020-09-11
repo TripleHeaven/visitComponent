@@ -1,8 +1,8 @@
-import React from "react";
-import Client from "../Client/Client";
+import React from 'react';
+import Client from '../Client/Client';
 
-import { ClientT } from "../typesTS/ClientT";
-import styles from "./ClientList.css";
+import { ClientT } from '../typesTS/ClientT';
+import styles from './ClientList.css';
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
 // if (!process || !process.env || process.env.NODE_ENV !== "development") {
@@ -17,7 +17,7 @@ import styles from "./ClientList.css";
 export default function ClientList({ clients }: { clients: ClientT[] }) {
   return (
     <div className={styles.clientcontainer}>
-      {clients.map((item) => (
+      {clients.map(item => (
         <Client key={item.clientId} {...item} />
       ))}
     </div>

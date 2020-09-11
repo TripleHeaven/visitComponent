@@ -1,3 +1,3 @@
-import Visit from "./Visit";
+import Visit from './Visit';
 
 export default Visit;
