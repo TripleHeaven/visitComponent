@@ -1,35 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 .visitblock {
-  background-color: #282a37;
+  background-color: #262b39;
   color: white;
-  width: 300px;
+  width: 280px;
   height: 80px;
   align-items: center;
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 50px 250px;
+  grid-template-columns: 51.5px 228.5px;
   grid-template-rows: 25px 25px 30px;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+
   /* margin-bottom: 10px; */
 }
 
-.circle {
+.circleBlock {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 3;
-  width: 50px;
-  height: 50px;
+  display: flex;
+  padding-left: 15.16px;
+  padding-top: 22.36px;
+}
+.circle {
+  width: 35px;
+  height: 35px;
   margin: 0 auto;
   background-color: #3f3f4b;
   border-radius: 50%;
   text-align: center;
   vertical-align: center;
-  line-height: 50px;
+  line-height: 37px;
+  font-size: 12px;
 }
 .nametime {
   grid-column-start: 2;
@@ -41,11 +47,15 @@
 }
 .time {
   margin-left: auto;
-  padding-right: 7px;
+  padding-right: 19px;
+  font-size: 11px;
+  padding-top: 31.4px;
 }
 .namename {
   margin-right: auto;
-  padding-left: 7px;
+  padding-left: 10px;
+  font-size: 14px;
+  padding-top: 29.9px;
 }
 .number {
   grid-column-start: 2;
@@ -54,8 +64,10 @@
   grid-row-end: 3;
   display: flex;
   margin-right: auto;
-  padding-left: 7px;
-  color: #7f7f8b;
+  padding-left: 8px;
+  color: #7d8088;
+  font-size: 13px;
+  padding-top: 17px;
 }
 .buttons {
   grid-column-start: 1;
@@ -72,6 +84,8 @@
   cursor: pointer;
   border: 0;
   margin-left: auto;
+  padding-top: 10px;
+  padding-right: 17px;
 }
 .buttonsitself {
   background: none;
@@ -79,21 +93,32 @@
   outline: 0;
   cursor: pointer;
   border: 0;
+  font-size: 12px;
 }
+
 .teachersection {
   display: flex;
   align-items: center;
+  font-size: 13px;
+  padding-left: 16px;
+  padding-top: 12px;
 }
 .teachern {
   margin-left: auto;
-  padding-left: 4px;
+  padding-left: 3px;
   color: #7f7f8b;
 }
 .line {
   border-bottom: solid;
   border-color: white;
-  margin-top: 15px;
-  width: 300px;
+  margin-top: 16px;
+
+  width: 127px;
   border-width: 1px;
   border-color: #323345;
+  display: flex;
+  /* margin-left: auto;
+  margin-right: auto; */
+  padding-left: 120px;
+  margin-left: 17px;
 }

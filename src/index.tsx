@@ -1,18 +1,12 @@
 import './index.css';
-
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-
 import { register } from './serviceWorker';
 import ClientList from './ClientList/ClientList';
-
 import VisitList from './VisitList/VisitList';
-
 import { Context } from './context';
-
 import { ClientT } from './typesTS/ClientT';
 import { VisitT } from './typesTS/VisitT';
-
 import styles from './index.css';
 
 // here we disable console and performance for better production experience

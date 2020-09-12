@@ -1,8 +1,6 @@
 import React from 'react';
 import Visit from '../Visit/Visit';
-
 import styles from './VisitList.css';
-
 import { VisitT } from '../typesTS/VisitT';
 
 // here we disable console and performance for better production experience
@@ -22,6 +20,7 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
       {visits.map(item => (
         <Visit key={item.clientId} {...item} />
       ))}
+      <div className={styles.nomo}>List end. No more visits</div>
     </div>
   );
 }

@@ -1,5 +1,15 @@
 .visitcontainer {
-  background-color: #323345;
-  padding: 10px;
-  width: 350px;
+  background-color: #262b39;
+  width: 281px;
+  padding-bottom: 50px;
+}
+.nomo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: white;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 72px;
+  padding-top: 25px;
 }
