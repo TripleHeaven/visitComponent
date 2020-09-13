@@ -1,5 +1,8 @@
 .clientcontainer {
-  background-color: #323345;
-  padding: 10px;
-  width : 300px;
+  background-color: #262b39;
+  width: 281px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 150px;
 }

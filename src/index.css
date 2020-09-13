@@ -1,7 +1,6 @@
 .addclientContainer {
-  background-color: #323345;
-  padding: 10px;
-  width: 300px;
+  background-color: #262b39;
+  width: 278px;
   color: white;
   font-family: 'Roboto', sans-serif;
 }
@@ -10,16 +9,15 @@
   display: grid;
   grid-template-rows: 50px, 50px, 50px, 50px;
 
-  width: 300px;
+  width: 278px;
 
   align-items: center;
-  padding: 5px;
+
   margin-left: auto;
   margin-right: auto;
 
-  padding: 0;
+  padding: 1.5px;
   font-family: 'Roboto', sans-serif;
-  padding: 10px;
 }
 .addName {
   grid-row-start: 1;

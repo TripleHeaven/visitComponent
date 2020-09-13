@@ -40,6 +40,30 @@ export default function App() {
       clientName: 'Sarah',
       clientSurname: 'Connor',
       clientNumber: '+1234566'
+    },
+    {
+      clientId: Date.now() + 5,
+      clientName: 'Anjela',
+      clientSurname: 'Jolly',
+      clientNumber: '+7905323562'
+    },
+    {
+      clientId: Date.now() + 6,
+      clientName: 'Alex',
+      clientSurname: 'Gone',
+      clientNumber: '+79053356562'
+    },
+    {
+      clientId: Date.now() + 7,
+      clientName: 'Maxim',
+      clientSurname: 'Kurnakov',
+      clientNumber: '+79053235632'
+    },
+    {
+      clientId: Date.now() + 8,
+      clientName: 'Anjela',
+      clientSurname: 'Jolly',
+      clientNumber: '+7905323562'
     }
   ]);
   const [visits, setVisit] = useState<VisitT[]>([]);

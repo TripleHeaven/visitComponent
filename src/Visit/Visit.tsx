@@ -8,6 +8,7 @@ export default function Visit(visit: VisitT) {
 
   return (
     <div className={styles.container}>
+      <div className={styles.sticktest}>I am sticky</div>
       <div className={styles.visitblock}>
         <div className={styles.circleBlock}>
           <div className={styles.circle}>
