@@ -33,7 +33,14 @@ export default function App() {
         return visit.clientId !== clientId;
       })
     );
-
+  // const sortDateVisit = (a) =>
+  //   setVisit(
+  //     visits.sort((a: VisitT, b: VisitT) => {
+  //       const a1 = new Date(a.vtime.getTime());
+  //       const b1 = new Date(b.vtime.getDate());
+  //       return Number(a1) - Number(b1);
+  //     })
+  //   );
   const [clients, setClient] = useState<ClientT[]>([
     {
       clientId: Date.now(),
@@ -66,12 +73,12 @@ export default function App() {
       clientNumber: '+7905323562'
     }
   ]);
+
   const [visits, setVisit] = useState<VisitT[]>([]);
   function randomDate(startHour: number, endHour: number): string {
     const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
     return hour.toString();
   }
-
   const addRandomVisit = () => {
     const radnomIndexCl = Math.floor(Math.random() * clients.length);
     const radnomIndexTeacher = Math.floor(Math.random() * teachers.length);
@@ -83,12 +90,26 @@ export default function App() {
         clientName: clients[radnomIndexCl].clientName,
         clientSurname: clients[radnomIndexCl].clientSurname,
         clientNumber: clients[radnomIndexCl].clientNumber,
-        vtime: randomDate(12, 18) + ':' + randomDate(12, 18),
+        vtime: new Date(
+          2020,
+          3,
+          15 + getRandomInt(1, 5),
+          2,
+          3 + getRandomInt(1, 50)
+        ),
         section: sections[randomIndexSections],
         teacher: teachers[radnomIndexTeacher]
       }
     ]);
   };
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  function sortingDate(visit1: VisitT, visit2: VisitT) {
+    const dateA = new Date(visit1.vtime.getTime());
+    const dateB = new Date(visit2.vtime.getTime());
+    return Number(dateA) - Number(dateB);
+  }
   const [clientNamec, setClientName] = useState('');
   const [clientSurnamec, setClientSurname] = useState('');
   const [clientNumberc, setClientNumber] = useState('');
@@ -157,6 +178,7 @@ export default function App() {
         <div className="visits">
           <VisitList visits={visits} />
         </div>
+        <button type="button">Sort</button>
       </div>
     </Context.Provider>
   );

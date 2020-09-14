@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Visit from '../Visit/Visit';
 import styles from './VisitList.css';
 import { VisitT } from '../typesTS/VisitT';
@@ -15,6 +15,13 @@ import { VisitT } from '../typesTS/VisitT';
 // client
 
 export default function VisitList({ visits }: { visits: VisitT[] }) {
+  function sortByDate() {
+    visits.sort((a, b) => {
+      return a.vtime - b.vtime;
+    });
+  }
+  sortByDate();
+
   return (
     <div className={styles.visitcontainer}>
       {visits.map(item => (

@@ -3,7 +3,7 @@ export interface VisitT {
   clientName: string;
   clientSurname: string;
   clientNumber: string;
-  vtime: string;
+  vtime: Date;
   section: string;
   teacher: string;
 }

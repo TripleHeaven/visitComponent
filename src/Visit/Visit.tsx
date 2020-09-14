@@ -8,7 +8,9 @@ export default function Visit(visit: VisitT) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.sticktest}>I am sticky</div>
+      <div className={styles.sticktest}>
+        {visit.vtime.getDate() + ' ' + visit.vtime.getMonth()}
+      </div>
       <div className={styles.visitblock}>
         <div className={styles.circleBlock}>
           <div className={styles.circle}>
@@ -20,7 +22,9 @@ export default function Visit(visit: VisitT) {
           <p className={styles.namename}>
             {visit.clientName} {visit.clientSurname}
           </p>{' '}
-          <p className={styles.time}>{visit.vtime}</p>
+          <p className={styles.time}>
+            {visit.vtime.getHours() + ':' + visit.vtime.getMinutes()}
+          </p>
         </div>
         <div className={styles.number}>{visit.clientNumber}</div>
         <div className={styles.buttons}>
