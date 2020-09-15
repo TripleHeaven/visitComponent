@@ -18,10 +18,10 @@ export default function VisitGroup({ vl }: { vl: VisitT[] }) {
   console.log('ff');
   return (
     <div>
+      <div>{vl[0].vtime.getDate() + ' ' + vl[0].vtime.getMonth()}</div>
       {vl.map(item => (
         <Visit key={item.clientId} {...item} />
       ))}
-      <div>List end. No more visits</div>
     </div>
   );
 }

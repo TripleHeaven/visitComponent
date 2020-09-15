@@ -54,9 +54,9 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
 
   return (
     <div>
-      {/* {sameDayVisits.map(vla => (
-        <VisitGroup key={vla} />
-      ))} */}
+      {sameDayVisits.map(vla => (
+        <VisitGroup vl={vla} key={vla[0].clientId} />
+      ))}
       {/* {visits.map(item => (
         <Visit key={item.clientId} {...item} />
       ))} */}
