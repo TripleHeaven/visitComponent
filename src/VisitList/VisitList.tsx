@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Visit from '../Visit/Visit';
+import React from 'react';
 import styles from './VisitList.css';
 import { VisitT } from '../typesTS/VisitT';
 import VisitGroup from '../VisitGroup/VisitGroup';
@@ -18,7 +17,7 @@ import VisitGroup from '../VisitGroup/VisitGroup';
 export default function VisitList({ visits }: { visits: VisitT[] }) {
   function sortByDate() {
     visits.sort((a, b) => {
-      return a.vtime - b.vtime;
+      return Number(a.vtime) - Number(b.vtime);
     });
   }
   let visitDates = new Array<string>();
@@ -38,7 +37,7 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
   for (let i = 0; i < visitDates.length; i++) {
     sameDayVisits.push([]);
     for (let j = 0; j < visits.length; j++) {
-      let dateforCheck =
+      const dateforCheck =
         String(visits[j].vtime.getDate()) +
         ' ' +
         String(visits[j].vtime.getMonth());
