@@ -15,10 +15,27 @@ import { VisitT } from '../typesTS/VisitT';
 // client
 
 export default function VisitGroup({ vl }: { vl: VisitT[] }) {
-  console.log('ff');
+  const monthNames: Array<string> = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
   return (
     <div>
-      <div>{vl[0].vtime.getDate() + ' ' + vl[0].vtime.getMonth()}</div>
+      <div className={styles.dcontainer}>
+        <div className={styles.dayandmonth}>
+          {vl[0].vtime.getDate() + ' ' + monthNames[vl[0].vtime.getMonth()]}
+        </div>
+      </div>
       {vl.map(item => (
         <Visit key={item.clientId} {...item} />
       ))}

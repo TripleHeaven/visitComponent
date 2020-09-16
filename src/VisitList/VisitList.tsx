@@ -53,7 +53,7 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
   sameDayVisits.forEach(vla => console.log(vla));
 
   return (
-    <div>
+    <div className={styles.visitcontainer}>
       {sameDayVisits.map(vla => (
         <VisitGroup vl={vla} key={vla[0].clientId} />
       ))}

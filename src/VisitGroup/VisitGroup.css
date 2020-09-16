@@ -1,0 +1,11 @@
+.dcontainer {
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.dayandmonth {
+  left: 50%;
+}
