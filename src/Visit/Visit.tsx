@@ -4,20 +4,24 @@ import { Context } from '../context';
 import styles from './Visit.scss';
 import { VisitT } from '../typesTS/VisitT';
 export default function Visit(visit: VisitT) {
-  const { removeVisit, editMod } = useContext(Context);
+  const { removeVisit } = useContext(Context);
+  let editVisibility = false;
   const [visible, setVisible] = useState({
-    editVisible: true,
-    visibility: styles.editHidden
+    vis: true,
+    visibilityE: styles.editHidden,
+    visibilityD: styles.visitblock
   });
   const toggleVisibility = () => {
+    editVisibility = !editVisibility;
     setVisible({
-      editVisible: !visible.editVisible,
-      visibility: visible.editVisible ? styles.editMode : styles.editHidden
+      vis: !visible.vis,
+      visibilityE: visible.vis ? styles.editMode : styles.editHidden,
+      visibilityD: visible.vis ? styles.visithidden : styles.visitblock
     });
   };
   return (
     <div className={styles.container}>
-      <div className={styles.visitblock}>
+      <div className={visible.visibilityD}>
         <div className={styles.circleBlock}>
           <div className={styles.circle}>
             {visit.clientName.slice(0, 1)}
@@ -56,7 +60,8 @@ export default function Visit(visit: VisitT) {
           </p>
         </div>
       </div>
-      <div className={visible.visibility}>
+
+      <div className={visible.visibilityE}>
         <div className={styles.circleBlock}>
           <div className={styles.circle}>
             {visit.clientName.slice(0, 1)}
@@ -74,6 +79,7 @@ export default function Visit(visit: VisitT) {
         <div className={styles.number}>{visit.clientNumber}</div>
         <div className={styles.buttons}>
           <div className={styles.teachersection}>
+            <p className={styles.editlabel}>Edit&nbsp;</p>
             {visit.section} <p className={styles.teachern}>{visit.teacher}</p>
           </div>
           <p className={styles.buttonsthing}>
