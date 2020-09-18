@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Visit from '../Visit/Visit';
 import styles from './VisitGroup.css';
 import { VisitT } from '../typesTS/VisitT';

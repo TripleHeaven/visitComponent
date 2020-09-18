@@ -3,8 +3,10 @@ import { Context } from '../context';
 
 import styles from './Visit.scss';
 import { VisitT } from '../typesTS/VisitT';
+import { EventT } from '../typesTS/EventT';
 export default function Visit(visit: VisitT) {
-  const { removeVisit } = useContext(Context);
+  const { removeVisit, editVisit } = useContext(Context);
+
   let editVisibility = false;
   const [visible, setVisible] = useState({
     vis: true,
@@ -19,6 +21,7 @@ export default function Visit(visit: VisitT) {
       visibilityD: visible.vis ? styles.visithidden : styles.visitblock
     });
   };
+
   return (
     <div className={styles.container}>
       <div className={visible.visibilityD}>
@@ -39,13 +42,14 @@ export default function Visit(visit: VisitT) {
         <div className={styles.number}>{visit.clientNumber}</div>
         <div className={styles.buttons}>
           <div className={styles.teachersection}>
-            {visit.section} <p className={styles.teachern}>{visit.teacher}</p>
+            {visit.eventChosen.name}{' '}
+            <p className={styles.teachern}>{visit.eventChosen.trainerName}</p>
           </div>
           <p className={styles.buttonsthing}>
             <button
               type="button"
               className={styles.buttonsitself}
-              onClick={() => removeVisit(visit.clientId)}
+              onClick={() => removeVisit(visit.visitId)}
             >
               Delete
             </button>
@@ -80,13 +84,14 @@ export default function Visit(visit: VisitT) {
         <div className={styles.buttons}>
           <div className={styles.teachersection}>
             <p className={styles.editlabel}>Edit&nbsp;</p>
-            {visit.section} <p className={styles.teachern}>{visit.teacher}</p>
+            {visit.eventChosen.name}{' '}
+            <p className={styles.teachern}>{visit.eventChosen.trainerName}</p>
           </div>
           <p className={styles.buttonsthing}>
             <button
               type="button"
               className={styles.buttonsitself}
-              onClick={() => removeVisit(visit.clientId)}
+              onClick={() => removeVisit(visit.visitId)}
             >
               Delete
             </button>
@@ -100,7 +105,23 @@ export default function Visit(visit: VisitT) {
             </button>
           </p>
         </div>
+        <div className={styles.editNode}>
+          <div className={styles.editMain}>
+            Edit workout:
+            <div className={styles.buttonsSection}>
+              {visit.possibleEvents.map(item => (
+                <button
+                  key={item.eventId}
+                  onClick={event => editVisit(visit.visitId, item.eventId)}
+                >
+                  {item.name}
+                </button>
+              ))}{' '}
+            </div>
+          </div>
+        </div>
       </div>
+
       <div className={styles.line}></div>
     </div>
   );

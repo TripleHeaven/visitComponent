@@ -135,18 +135,25 @@
   background-color: #262b39;
   color: white;
   width: 280px;
-  height: 80px;
+  height: 130px;
   align-items: center;
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
   grid-template-columns: 51.5px 228.5px;
-  grid-template-rows: 25px 25px 30px;
+  grid-template-rows: 25px 25px 30px 50px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
 
   /* margin-bottom: 10px; */
+}
+.editNode {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  font-family: 'Roboto', sans-serif;
 }
 
 .editHidden {
@@ -158,4 +165,24 @@
 .editlabel {
   color: #ff7a00;
   font-size: 13px;
+}
+.editMain {
+  font-size: 12px;
+  padding: 16px;
+  display: inline;
+  flex-direction: row;
+}
+.buttonsSection {
+  display: inline;
+  flex-direction: row;
+}
+.editMain button {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  outline: 0;
+  border: 0;
+  font-size: 12px;
+  margin-left: 5px;
+  cursor: pointer;
 }

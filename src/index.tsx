@@ -7,6 +7,7 @@ import VisitList from './VisitList/VisitList';
 import { Context } from './context';
 import { ClientT } from './typesTS/ClientT';
 import { VisitT } from './typesTS/VisitT';
+import { EventT } from './typesTS/EventT';
 import styles from './index.css';
 
 // here we disable console and performance for better production experience
@@ -18,8 +19,6 @@ import styles from './index.css';
 // }
 
 export default function App() {
-  const sections = ['Box', 'Fitness', 'Jeff', 'Jab'];
-  const teachers = ['Jeff Click', 'Matt Daimond', 'Lev Balaguroff'];
   const removeClient = (clientId: number) => {
     setClient(
       clients.filter(client => {
@@ -27,20 +26,64 @@ export default function App() {
       })
     );
   };
-  const removeVisit = (clientId: number) =>
+  const removeVisit = (visitId: number) =>
     setVisit(
-      visits.filter((visit: VisitT) => {
-        return visit.clientId !== clientId;
+      visits.filter(visit => {
+        return visit.visitId !== visitId;
       })
     );
-  // const sortDateVisit = (a) =>
-  //   setVisit(
-  //     visits.sort((a: VisitT, b: VisitT) => {
-  //       const a1 = new Date(a.vtime.getTime());
-  //       const b1 = new Date(b.vtime.getDate());
-  //       return Number(a1) - Number(b1);
-  //     })
-  //   );
+  const editVisit = (visitId: number, eventId: number) => {
+    // for (let i = 0; i < visits.length; i++) {
+    //   if (visitId === visits[i].visitId) {
+    //     const newVisit = visits[i];
+    //     newVisit.possibleEvents = newVisit.possibleEvents.filter(function (
+    //       item
+    //     ) {
+    //       return item.eventId !== visits[i].eventChosen.eventId;
+    //     });
+    //     newVisit.possibleEvents.push(visits[i].eventChosen);
+    //     for (let j = 0; j < newVisit.possibleEvents.length; j++) {
+    //       if (newVisit.possibleEvents[i].eventId === aeventId) {
+    //         newVisit.eventChosen = newVisit.possibleEvents[i];
+    //       }
+    //     }
+    //     setVisit(
+    //       visits.filter((visit: VisitT) => {
+    //         return visit.visitId !== visitId;
+    //       })
+    //     );
+    //     setVisit([...visits, newVisit]);
+    //   }
+    // }
+    let newVisit;
+    for (let i = 0; i < visits.length; i++) {
+      if (visitId === visits[i].visitId) {
+        newVisit = visits[i];
+        newVisit.possibleEvents.filter(function (item) {
+          return item.eventId !== visits[i].eventChosen.eventId;
+        });
+        newVisit.possibleEvents.push(visits[i].eventChosen);
+        for (let j = 0; j < newVisit.possibleEvents.length; j++) {
+          if (newVisit.possibleEvents[j].eventId === eventId) {
+            newVisit.eventChosen = newVisit.possibleEvents[j];
+          }
+        }
+
+        //setVisit([...visits, newVisit]);
+
+        setVisit([
+          ...visits.filter(visit => {
+            return visit.visitId !== visitId;
+          }),
+          newVisit
+        ]);
+      }
+    }
+    console.log('\n\n\n\n\n\n\n');
+    console.log(newVisit);
+
+    return null;
+  };
   const [clients, setClient] = useState<ClientT[]>([
     {
       clientId: Date.now(),
@@ -79,13 +122,40 @@ export default function App() {
     const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
     return hour.toString();
   }
+  const [events, setEvent] = useState<EventT[]>([
+    {
+      eventId: Date.now() + getRandomInt(15, 12000),
+      name: 'Box',
+      trainerName: 'Lev Balaguroff'
+    },
+    {
+      eventId: Date.now() - getRandomInt(40, 1000),
+      name: 'Fitness',
+      trainerName: 'Lev Tolstoy'
+    },
+    {
+      eventId: Date.now() + getRandomInt(15, 1000),
+      name: 'Jab',
+      trainerName: 'Alex DarkStalker'
+    },
+    {
+      eventId: Date.now() - getRandomInt(10, -15),
+      name: 'Football',
+      trainerName: 'Ivan Akinfeev'
+    },
+    {
+      eventId: Date.now() - getRandomInt(15, 30),
+      name: 'Basketball',
+      trainerName: 'Michael Jordan'
+    }
+  ]);
   const addRandomVisit = () => {
     const radnomIndexCl = Math.floor(Math.random() * clients.length);
-    const radnomIndexTeacher = Math.floor(Math.random() * teachers.length);
-    const randomIndexSections = Math.floor(Math.random() * sections.length);
+
     setVisit([
       ...visits,
       {
+        visitId: Date.now() + getRandomInt(-100, 100),
         clientId: Date.now(),
         clientName: clients[radnomIndexCl].clientName,
         clientSurname: clients[radnomIndexCl].clientSurname,
@@ -93,16 +163,16 @@ export default function App() {
         vtime: new Date(
           2020,
           3,
-          15 + getRandomInt(1, 5),
+          15 + getRandomInt(1, 10),
           2,
           3 + getRandomInt(1, 50)
         ),
-        section: sections[randomIndexSections],
-        teacher: teachers[radnomIndexTeacher]
+        eventChosen: events[0],
+        possibleEvents: events
       }
     ]);
   };
-  function getRandomInt(min, max) {
+  function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   function sortingDate(visit1: VisitT, visit2: VisitT) {
@@ -132,7 +202,8 @@ export default function App() {
     <Context.Provider
       value={{
         removeClient,
-        removeVisit
+        removeVisit,
+        editVisit
       }}
     >
       <div>
