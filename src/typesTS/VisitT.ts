@@ -1,3 +1,5 @@
+import { EventT } from './Event';
+
 export interface VisitT {
   clientId: number;
   clientName: string;
