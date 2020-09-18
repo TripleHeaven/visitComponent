@@ -59,7 +59,7 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
       {/* {visits.map(item => (
         <Visit key={item.clientId} {...item} />
       ))} */}
-      <div>List end. No more visits</div>
+      <div className={styles.nomo}>List end. No more visits</div>
     </div>
   );
 }

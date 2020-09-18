@@ -33,7 +33,8 @@ export default function VisitGroup({ vl }: { vl: VisitT[] }) {
     <div>
       <div className={styles.dcontainer}>
         <div className={styles.dayandmonth}>
-          {vl[0].vtime.getDate() + ' ' + monthNames[vl[0].vtime.getMonth()]}
+          <span className={styles.boldt}>{vl[0].vtime.getDate()} </span>{' '}
+          {monthNames[vl[0].vtime.getMonth()]}
         </div>
       </div>
       {vl.map(item => (
