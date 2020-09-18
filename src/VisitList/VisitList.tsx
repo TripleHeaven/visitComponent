@@ -53,8 +53,8 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
 
   return (
     <div className={styles.visitcontainer}>
-      {sameDayVisits.map(vla => (
-        <VisitGroup vl={vla} key={vla[0].clientId} />
+      {sameDayVisits.map((vla, index) => (
+        <VisitGroup vl={vla} key={index} />
       ))}
       {/* {visits.map(item => (
         <Visit key={item.clientId} {...item} />

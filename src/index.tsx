@@ -32,29 +32,7 @@ export default function App() {
         return visit.visitId !== visitId;
       })
     );
-  const editVisit = (visitId: number, eventId: number) => {
-    // for (let i = 0; i < visits.length; i++) {
-    //   if (visitId === visits[i].visitId) {
-    //     const newVisit = visits[i];
-    //     newVisit.possibleEvents = newVisit.possibleEvents.filter(function (
-    //       item
-    //     ) {
-    //       return item.eventId !== visits[i].eventChosen.eventId;
-    //     });
-    //     newVisit.possibleEvents.push(visits[i].eventChosen);
-    //     for (let j = 0; j < newVisit.possibleEvents.length; j++) {
-    //       if (newVisit.possibleEvents[i].eventId === aeventId) {
-    //         newVisit.eventChosen = newVisit.possibleEvents[i];
-    //       }
-    //     }
-    //     setVisit(
-    //       visits.filter((visit: VisitT) => {
-    //         return visit.visitId !== visitId;
-    //       })
-    //     );
-    //     setVisit([...visits, newVisit]);
-    //   }
-    // }
+  const editVisit = (visitId: number, eventId: number, uniqueId: number) => {
     let newVisit;
     for (let i = 0; i < visits.length; i++) {
       if (visitId === visits[i].visitId) {
@@ -68,12 +46,13 @@ export default function App() {
             newVisit.eventChosen = newVisit.possibleEvents[j];
           }
         }
-
+        newVisit.visitId = visits[i].visitId + 1;
+        newVisit.uniqueId = visits[i].uniqueId + 1;
         //setVisit([...visits, newVisit]);
 
         setVisit([
-          ...visits.filter(visit => {
-            return visit.visitId !== visitId;
+          ...visits.filter(item => {
+            return item.uniqueId !== uniqueId;
           }),
           newVisit
         ]);
@@ -155,6 +134,7 @@ export default function App() {
     setVisit([
       ...visits,
       {
+        uniqueId: getRandomInt(10, 5000),
         visitId: Date.now() + getRandomInt(-100, 100),
         clientId: Date.now(),
         clientName: clients[radnomIndexCl].clientName,

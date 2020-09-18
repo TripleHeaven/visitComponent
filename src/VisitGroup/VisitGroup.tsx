@@ -37,8 +37,8 @@ export default function VisitGroup({ vl }: { vl: VisitT[] }) {
           {monthNames[vl[0].vtime.getMonth()]}
         </div>
       </div>
-      {vl.map(item => (
-        <Visit key={item.clientId} {...item} />
+      {vl.map((item, index) => (
+        <Visit key={index} {...item} />
       ))}
     </div>
   );

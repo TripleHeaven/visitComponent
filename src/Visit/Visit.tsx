@@ -112,7 +112,9 @@ export default function Visit(visit: VisitT) {
               {visit.possibleEvents.map(item => (
                 <button
                   key={item.eventId}
-                  onClick={event => editVisit(visit.visitId, item.eventId)}
+                  onClick={event =>
+                    editVisit(visit.visitId, item.eventId, visit.uniqueId)
+                  }
                 >
                   {item.name}
                 </button>
