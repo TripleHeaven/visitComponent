@@ -9,6 +9,7 @@ import { ClientT } from './typesTS/ClientT';
 import { VisitT } from './typesTS/VisitT';
 import { EventT } from './typesTS/EventT';
 import styles from './index.css';
+import { getConstantValue } from 'typescript';
 
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
@@ -36,30 +37,33 @@ export default function App() {
     let newVisit;
     for (let i = 0; i < visits.length; i++) {
       if (visitId === visits[i].visitId) {
+        //
         newVisit = visits[i];
         newVisit.possibleEvents.filter(function (item) {
-          return item.eventId !== visits[i].eventChosen.eventId;
+          return item.eventId !== eventId;
         });
+
         newVisit.possibleEvents.push(visits[i].eventChosen);
         for (let j = 0; j < newVisit.possibleEvents.length; j++) {
           if (newVisit.possibleEvents[j].eventId === eventId) {
             newVisit.eventChosen = newVisit.possibleEvents[j];
+            const index = j;
+            if (index > -1) {
+              newVisit.possibleEvents.splice(index, 1);
+            }
           }
         }
-        newVisit.visitId = visits[i].visitId + 1;
-        newVisit.uniqueId = visits[i].uniqueId + 1;
-        //setVisit([...visits, newVisit]);
 
         setVisit([
           ...visits.filter(item => {
-            return item.uniqueId !== uniqueId;
+            return item.visitId !== visitId;
           }),
           newVisit
         ]);
+
+        return null;
       }
     }
-    console.log('\n\n\n\n\n\n\n');
-    console.log(newVisit);
 
     return null;
   };
@@ -101,7 +105,7 @@ export default function App() {
     const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
     return hour.toString();
   }
-  const [events, setEvent] = useState<EventT[]>([
+  const events = [
     {
       eventId: Date.now() + getRandomInt(15, 12000),
       name: 'Box',
@@ -127,7 +131,7 @@ export default function App() {
       name: 'Basketball',
       trainerName: 'Michael Jordan'
     }
-  ]);
+  ];
   const addRandomVisit = () => {
     const radnomIndexCl = Math.floor(Math.random() * clients.length);
 
@@ -147,8 +151,8 @@ export default function App() {
           2,
           3 + getRandomInt(1, 50)
         ),
-        eventChosen: events[0],
-        possibleEvents: events
+        eventChosen: events[events.length - 1],
+        possibleEvents: events.slice(0, events.length - 1)
       }
     ]);
   };
