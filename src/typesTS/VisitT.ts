@@ -4,11 +4,11 @@ export interface VisitT {
   uniqueId: number;
   visitId: number;
   clientId: number;
-
   clientName: string;
   clientSurname: string;
   clientNumber: string;
   vtime: Date;
   eventChosen: EventT;
   possibleEvents: EventT[];
+  createMode: boolean;
 }

@@ -33,7 +33,31 @@ export default function App() {
         return visit.visitId !== visitId;
       })
     );
-  const editVisit = (visitId: number, eventId: number, uniqueId: number) => {
+  const editVisitCreate = (visitId: number, eventId: number) => {
+    let newVisit;
+    for (let i = 0; i < visits.length; i++) {
+      if (visitId === visits[i].visitId) {
+        //
+        newVisit = visits[i];
+        for (let j = 0; j < newVisit.possibleEvents.length; j++) {
+          if (newVisit.possibleEvents[j].eventId === eventId) {
+            newVisit.eventChosen = newVisit.possibleEvents[j];
+          }
+        }
+        newVisit.createMode = false;
+        setVisit([
+          ...visits.filter(item => {
+            return item.visitId !== visitId;
+          }),
+          newVisit
+        ]);
+
+        return null;
+      }
+    }
+    return null;
+  };
+  const editVisit = (visitId: number, eventId: number) => {
     let newVisit;
     for (let i = 0; i < visits.length; i++) {
       if (visitId === visits[i].visitId) {
@@ -53,7 +77,6 @@ export default function App() {
             }
           }
         }
-
         setVisit([
           ...visits.filter(item => {
             return item.visitId !== visitId;
@@ -64,9 +87,9 @@ export default function App() {
         return null;
       }
     }
-
     return null;
   };
+
   const [clients, setClient] = useState<ClientT[]>([
     {
       clientId: Date.now(),
@@ -152,7 +175,33 @@ export default function App() {
           3 + getRandomInt(1, 50)
         ),
         eventChosen: events[events.length - 1],
-        possibleEvents: events.slice(0, events.length - 1)
+        possibleEvents: events.slice(0, events.length - 1),
+        createMode: false
+      }
+    ]);
+  };
+  const addRandomVisitCreate = () => {
+    const radnomIndexCl = Math.floor(Math.random() * clients.length);
+
+    setVisit([
+      ...visits,
+      {
+        uniqueId: getRandomInt(10, 5000),
+        visitId: Date.now() + getRandomInt(-100, 100),
+        clientId: Date.now(),
+        clientName: clients[radnomIndexCl].clientName,
+        clientSurname: clients[radnomIndexCl].clientSurname,
+        clientNumber: clients[radnomIndexCl].clientNumber,
+        vtime: new Date(
+          2020,
+          3,
+          15 + getRandomInt(1, 10),
+          2,
+          3 + getRandomInt(1, 50)
+        ),
+        eventChosen: events[0],
+        possibleEvents: events,
+        createMode: true
       }
     ]);
   };
@@ -187,7 +236,8 @@ export default function App() {
       value={{
         removeClient,
         removeVisit,
-        editVisit
+        editVisit,
+        editVisitCreate
       }}
     >
       <div>
@@ -218,7 +268,10 @@ export default function App() {
               ></input>
             </div>
             <div className={styles.addButton}>
-              <button type="button" onClick={addRandomVisit}>
+              <button type="button" onClick={() => addRandomVisitCreate()}>
+                Create
+              </button>
+              <button type="button" onClick={() => addRandomVisit()}>
                 Add Random Visit
               </button>
               <button type="button" onClick={addClient}>
