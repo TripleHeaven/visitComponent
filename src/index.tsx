@@ -7,9 +7,7 @@ import VisitList from './VisitList/VisitList';
 import { Context } from './context';
 import { ClientT } from './typesTS/ClientT';
 import { VisitT } from './typesTS/VisitT';
-import { EventT } from './typesTS/EventT';
 import styles from './index.css';
-import { getConstantValue } from 'typescript';
 
 // here we disable console and performance for better production experience
 // console.log(process.env.NODE_ENV);
@@ -124,10 +122,6 @@ export default function App() {
   ]);
 
   const [visits, setVisit] = useState<VisitT[]>([]);
-  function randomDate(startHour: number, endHour: number): string {
-    const hour = (startHour + Math.random() * (endHour - startHour)) | 0;
-    return hour.toString();
-  }
   const events = [
     {
       eventId: Date.now() + getRandomInt(15, 12000),
@@ -195,9 +189,9 @@ export default function App() {
         vtime: new Date(
           2020,
           3,
-          15 + getRandomInt(1, 10),
+          15 - getRandomInt(5, 10),
           2,
-          3 + getRandomInt(1, 50)
+          3 - getRandomInt(30, 50)
         ),
         eventChosen: events[0],
         possibleEvents: events,
@@ -207,11 +201,6 @@ export default function App() {
   };
   function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min;
-  }
-  function sortingDate(visit1: VisitT, visit2: VisitT) {
-    const dateA = new Date(visit1.vtime.getTime());
-    const dateB = new Date(visit2.vtime.getTime());
-    return Number(dateA) - Number(dateB);
   }
   const [clientNamec, setClientName] = useState('');
   const [clientSurnamec, setClientSurname] = useState('');
@@ -286,7 +275,6 @@ export default function App() {
         <div className="visits">
           <VisitList visits={visits} />
         </div>
-        <button type="button">Sort</button>
       </div>
     </Context.Provider>
   );

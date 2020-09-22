@@ -46,13 +46,9 @@ export default function VisitList({ visits }: { visits: VisitT[] }) {
       }
     }
   }
-  // console.log(visitDates);
-  // console.log(sameDayVisits);
-  console.log(' =================== ');
-  sameDayVisits.forEach(vla => console.log(vla));
-
   return (
     <div className={styles.visitcontainer}>
+      <div className={styles.vlabel}>Visits</div>
       {sameDayVisits.map((vla, index) => (
         <VisitGroup vl={vla} key={index} />
       ))}

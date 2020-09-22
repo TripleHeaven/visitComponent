@@ -3,6 +3,9 @@
   width: 278px;
   color: white;
   font-family: 'Roboto', sans-serif;
+  position: absolute;
+  top: 100px;
+  left: 400px;
 }
 .addclientInfo {
   background-color: #282a37;
