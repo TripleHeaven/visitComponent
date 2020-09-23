@@ -50,7 +50,7 @@ export default function Visit(visit: VisitT) {
             <div className={styles.teachersection}>
               <p className={styles.createlabel}>Add new workout&nbsp;</p>
             </div>
-            <p className={styles.buttonsthing}>
+            <p className={styles.buttonsthingC}>
               <button
                 type="button"
                 className={styles.buttonsitself}
@@ -125,61 +125,66 @@ export default function Visit(visit: VisitT) {
             </p>
           </div>
         </div>
-
-        <div className={visible.visibilityE}>
-          <div className={styles.circleBlock}>
-            <div className={styles.circle}>
-              {visit.clientName.slice(0, 1)}
-              {visit.clientSurname.slice(0, 1)}
+        <div className={styles.containerE}>
+          <div className={visible.visibilityE}>
+            <div className={styles.circleBlock}>
+              <div className={styles.circle}>
+                {visit.clientName.slice(0, 1)}
+                {visit.clientSurname.slice(0, 1)}
+              </div>
             </div>
-          </div>
-          <div className={styles.nametime}>
-            <p className={styles.namename}>
-              {visit.clientName} {visit.clientSurname}
-            </p>{' '}
-            <p className={styles.time}>
-              {toDisplayTime(visit.vtime.getHours().toString()) +
-                ':' +
-                toDisplayTime(visit.vtime.getMinutes().toString())}
-            </p>
-          </div>
-          <div className={styles.number}>{visit.clientNumber}</div>
-          <div className={styles.buttons}>
-            <div className={styles.teachersection}>
-              <p className={styles.editlabel}>Edit&nbsp;</p>
-              {visit.eventChosen.name}{' '}
-              <p className={styles.teachern}>{visit.eventChosen.trainerName}</p>
+            <div className={styles.nametime}>
+              <p className={styles.namename}>
+                {visit.clientName} {visit.clientSurname}
+              </p>{' '}
+              <p className={styles.time}>
+                {toDisplayTime(visit.vtime.getHours().toString()) +
+                  ':' +
+                  toDisplayTime(visit.vtime.getMinutes().toString())}
+              </p>
             </div>
-            <p className={styles.buttonsthing}>
-              <button
-                type="button"
-                className={styles.buttonsitself}
-                onClick={() => removeVisit(visit.visitId)}
-              >
-                Delete
-              </button>
-              <button
-                type="button"
-                className={styles.buttonsitself}
-                onClick={() => toggleVisibility()}
-              >
-                Edit
-              </button>
-            </p>
-          </div>
-          <div className={styles.editNode}>
-            <div className={styles.editWorkoutLabel}>Edit workout:</div>
-            {visit.possibleEvents.map(item => (
-              <button
-                key={item.eventId}
-                className={styles.chooseButton}
-                onClick={() =>
-                  editVisit(visit.visitId, item.eventId, toggleVisibility())
-                }
-              >
-                {item.name}
-              </button>
-            ))}{' '}
+            <div className={styles.number}>{visit.clientNumber}</div>
+            <div className={styles.buttons}>
+              <div className={styles.teachersection}>
+                <p className={styles.editlabel}>Edit&nbsp;</p>
+                {visit.eventChosen.name}{' '}
+                <p className={styles.teachern}>
+                  {visit.eventChosen.trainerName}
+                </p>
+              </div>
+              <p className={styles.buttonsthing}>
+                <p className={styles.buttonED}>
+                  <button
+                    type="button"
+                    className={styles.buttonsitself}
+                    onClick={() => removeVisit(visit.visitId)}
+                  >
+                    Delete
+                  </button>
+                </p>
+                <button
+                  type="button"
+                  className={styles.buttonsitself}
+                  onClick={() => toggleVisibility()}
+                >
+                  Edit
+                </button>
+              </p>
+            </div>
+            <div className={styles.editNode}>
+              <div className={styles.editWorkoutLabel}>Edit workout:</div>
+              {visit.possibleEvents.map(item => (
+                <button
+                  key={item.eventId}
+                  className={styles.chooseButton}
+                  onClick={() =>
+                    editVisit(visit.visitId, item.eventId, toggleVisibility())
+                  }
+                >
+                  {item.name}
+                </button>
+              ))}{' '}
+            </div>
           </div>
         </div>
         <div className={styles.line}></div>
