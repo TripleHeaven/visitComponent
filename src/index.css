@@ -5,13 +5,14 @@ body {
 }
 body {
   overflow-y: auto;
+  display: flex;
 }
 .addclientContainer {
   background-color: #262b39;
   width: 278px;
   color: white;
   font-family: 'Roboto', sans-serif;
-  float: left;
+  float: right;
 }
 .visits {
   float: right;
