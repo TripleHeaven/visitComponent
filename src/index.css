@@ -3,6 +3,9 @@ body {
   margin: 0;
   background-color: #e5e5e5;
 }
+body {
+  overflow-y: auto;
+}
 .addclientContainer {
   background-color: #262b39;
   width: 278px;

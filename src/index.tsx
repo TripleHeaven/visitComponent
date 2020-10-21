@@ -416,30 +416,6 @@ export default function App() {
       <div>
         <div className={styles.addclientContainer}>
           <div className={styles.addclientInfo}>
-            <div className={styles.addName}>
-              <label>Name</label>
-              <input
-                type="text"
-                value={clientNamec}
-                onChange={event => setClientName(event.target.value)}
-              ></input>
-            </div>
-            <div className={styles.addSurname}>
-              <label>Surname</label>
-              <input
-                type="text"
-                value={clientSurnamec}
-                onChange={event => setClientSurname(event.target.value)}
-              ></input>
-            </div>
-            <div className={styles.addNumber}>
-              <label>Number</label>
-              <input
-                type="text"
-                value={clientNumberc}
-                onChange={event => setClientNumber(event.target.value)}
-              ></input>
-            </div>
             <div className={styles.addButton}>
               <button type="button" onClick={() => addRandomVisitCreate()}>
                 Create
@@ -451,9 +427,6 @@ export default function App() {
                 Add a client
               </button>
             </div>
-          </div>
-          <div>
-            <ClientList clients={clients} />
           </div>
         </div>
         <div className={styles.visits}>
