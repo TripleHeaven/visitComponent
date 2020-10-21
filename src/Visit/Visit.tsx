@@ -50,7 +50,7 @@ export default function Visit(visit: VisitT) {
             <div className={styles.teachersection}>
               <p className={styles.createlabel}>Add new workout&nbsp;</p>
             </div>
-            <p className={styles.buttonsthingC}>
+            <div className={styles.buttonsthingC}>
               <button
                 type="button"
                 className={styles.buttonsitself}
@@ -64,7 +64,7 @@ export default function Visit(visit: VisitT) {
                 className={styles.buttonsitself}
                 onClick={() => toggleVisibility()}
               ></button>
-            </p>
+            </div>
           </div>
           <div className={styles.editNode}>
             <div className={styles.editWorkoutLabel}>Choose new workout</div>
@@ -106,7 +106,7 @@ export default function Visit(visit: VisitT) {
               {visit.eventChosen.name}{' '}
               <p className={styles.teachern}>{visit.eventChosen.trainerName}</p>
             </div>
-            <p className={styles.buttonsthing}>
+            <div className={styles.buttonsthing}>
               <button
                 type="button"
                 className={styles.buttonsitself}
@@ -122,7 +122,7 @@ export default function Visit(visit: VisitT) {
               >
                 &nbsp;Edit
               </button>
-            </p>
+            </div>
           </div>
         </div>
         <div className={styles.containerE}>
@@ -152,7 +152,7 @@ export default function Visit(visit: VisitT) {
                   {visit.eventChosen.trainerName}
                 </p>
               </div>
-              <p className={styles.buttonsthing}>
+              <div className={styles.buttonsthing}>
                 <p className={styles.buttonED}>
                   <button
                     type="button"
@@ -169,7 +169,7 @@ export default function Visit(visit: VisitT) {
                 >
                   Edit
                 </button>
-              </p>
+              </div>
             </div>
             <div className={styles.editNode}>
               <div className={styles.editWorkoutLabel}>Edit workout:</div>

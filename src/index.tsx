@@ -121,7 +121,6 @@ export default function App() {
     }
   ]);
 
-  const [visits, setVisit] = useState<VisitT[]>([]);
   const events = [
     {
       eventId: Date.now() + getRandomInt(15, 12000),
@@ -149,6 +148,190 @@ export default function App() {
       trainerName: 'Michael Jordan'
     }
   ];
+  // Can be empty , generating visits for view here
+  const [visits, setVisit] = useState<VisitT[]>([
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    },
+    {
+      uniqueId: getRandomInt(10, 5000),
+      visitId: Date.now() + getRandomInt(-100, 100),
+      clientId: Date.now(),
+      clientName: clients[getRandomInt(1, clients.length - 1)].clientName,
+      clientSurname: clients[getRandomInt(1, clients.length - 1)].clientSurname,
+      clientNumber: clients[getRandomInt(1, clients.length - 1)].clientNumber,
+      vtime: new Date(
+        2020,
+        3,
+        15 + getRandomInt(1, 10),
+        2,
+        3 + getRandomInt(1, 50)
+      ),
+      eventChosen: events[events.length - 1],
+      possibleEvents: events.slice(0, events.length - 1),
+      createMode: false
+    }
+  ]);
+  // End
   const addRandomVisit = () => {
     const radnomIndexCl = Math.floor(Math.random() * clients.length);
 
@@ -219,7 +402,8 @@ export default function App() {
     setClientSurname('');
     setClientNumber('');
   };
-  // Add client thing
+  // Adding start visits!
+
   return (
     <Context.Provider
       value={{
@@ -272,7 +456,7 @@ export default function App() {
             <ClientList clients={clients} />
           </div>
         </div>
-        <div className="visits">
+        <div className={styles.visits}>
           <VisitList visits={visits} />
         </div>
       </div>
